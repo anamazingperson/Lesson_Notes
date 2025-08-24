@@ -1,0 +1,122 @@
+\documentclass[12pt,a4paper]{article}
+
+% ===========================
+% 基本设置
+% ===========================
+\usepackage[utf8]{inputenc}
+\usepackage{ctex} % 中文支持，如果只写英文可去掉
+\usepackage{amsmath, amssymb, amsthm} % 数学公式
+\usepackage{graphicx} % 插图
+\usepackage{hyperref} % 超链接
+\usepackage{listings} % 代码高亮
+\usepackage{xcolor} % 颜色
+\usepackage{geometry} % 页边距
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+
+% ===========================
+% 代码环境设置
+% ===========================
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{green!50!black},
+    keywordstyle=\color{blue},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breaklines=true,                 
+    captionpos=b,                    
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=4
+}
+\lstset{style=mystyle}
+
+% ===========================
+% 文档信息
+% ===========================
+\title{学习笔记整理 \\ \large（机器学习 / 强化学习 / 大模型）}
+\author{Your Name}
+\date{\today}
+
+% ===========================
+% 正文开始
+% ===========================
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+% ---------------------------
+\section{课程概览}
+本笔记主要整理了李宏毅老师的机器学习课程、强化学习课程，以及部分大模型相关的学习内容。  
+
+\subsection{学习目标}
+\begin{itemize}
+    \item 系统化整理课程知识点
+    \item 配合课程PPT + 笔记 + 作业实现
+    \item 便于后期复习和分享
+\end{itemize}
+
+% ---------------------------
+\section{机器学习笔记}
+
+\subsection{监督学习}
+例如：线性回归、逻辑回归、神经网络等。
+
+\textbf{线性回归公式:}
+\[
+y = Xw + b
+\]
+
+\subsection{代码示例}
+\begin{lstlisting}[language=Python, caption=线性回归示例]
+import numpy as np
+from sklearn.linear_model import LinearRegression
+
+X = np.array([[1],[2],[3],[4]])
+y = np.array([2,4,6,8])
+
+model = LinearRegression().fit(X,y)
+print(model.coef_, model.intercept_)
+\end{lstlisting}
+
+% ---------------------------
+\section{强化学习笔记}
+
+\subsection{Q-Learning}
+Q 学习的核心更新公式：
+\[
+Q(s,a) \leftarrow Q(s,a) + \alpha \Big[ r + \gamma \max_{a'} Q(s',a') - Q(s,a) \Big]
+\]
+
+\subsection{作业示例}
+\begin{itemize}
+    \item 实现一个简化版 Q-learning 算法
+    \item 在 FrozenLake 环境上测试
+\end{itemize}
+
+% ---------------------------
+\section{大模型笔记}
+
+\subsection{Transformer 基本结构}
+包含 Self-Attention、Feed-Forward、Residual Connection 等。
+
+\subsection{公式总结}
+注意力机制公式：
+\[
+\text{Attention}(Q,K,V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V
+\]
+
+% ---------------------------
+\section{总结与展望}
+本笔记持续更新，后续会加入更多实验代码和论文阅读笔记。
+
+\end{document}
